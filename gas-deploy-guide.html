@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAS デプロイ手順書 | SES Sales Partner</title>
+<style>
+  :root {
+    --teal: #16A0BA;
+    --teal-light: #E6F5F8;
+    --navy: #163A5C;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --green: #10b981;
+    --orange: #f59e0b;
+    --red: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Noto Sans JP", "Hiragino Sans", sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+  .page { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* Header */
+  .doc-header { background: var(--navy); color: #fff; border-radius: 16px; padding: 36px 40px; margin-bottom: 48px; }
+  .doc-header h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .doc-header p { font-size: 14px; color: rgba(255,255,255,0.7); }
+  .doc-header .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--teal); color: #fff; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 14px; }
+
+  /* Overview */
+  .overview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 48px; }
+  .ov-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; }
+  .ov-icon { font-size: 28px; margin-bottom: 8px; }
+  .ov-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .ov-desc { font-size: 12px; color: var(--muted); }
+
+  /* Steps */
+  .step { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 32px 36px; margin-bottom: 24px; position: relative; }
+  .step-num { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+  .step-badge { width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: #fff; font-family: "Inter", sans-serif; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-badge.done { background: var(--green); }
+  .step-title { font-size: 18px; font-weight: 800; color: var(--navy); }
+  .step-sub { font-size: 13px; color: var(--muted); font-weight: 400; margin-top: 2px; }
+
+  h3 { font-size: 15px; font-weight: 700; margin: 20px 0 10px; color: var(--navy); }
+  p { font-size: 14.5px; color: #334155; margin-bottom: 10px; }
+
+  /* Instruction list */
+  .inst { counter-reset: inst; list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+  .inst li { counter-increment: inst; display: flex; gap: 12px; font-size: 14px; }
+  .inst li::before { content: counter(inst); min-width: 24px; height: 24px; background: var(--teal-light); color: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+
+  /* Code block */
+  .code-wrap { position: relative; margin: 16px 0; }
+  pre { background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 20px 22px; font-size: 13px; line-height: 1.7; overflow-x: auto; font-family: "Fira Code", "SFMono-Regular", Consolas, monospace; }
+  .copy-btn { position: absolute; top: 10px; right: 10px; background: #334155; color: #94a3b8; border: none; border-radius: 6px; padding: 5px 12px; font-size: 12px; cursor: pointer; transition: all .15s; }
+  .copy-btn:hover { background: var(--teal); color: #fff; }
+
+  /* Callout */
+  .callout { border-radius: 10px; padding: 14px 18px; margin: 16px 0; font-size: 13.5px; display: flex; gap: 10px; align-items: flex-start; }
+  .callout.info { background: var(--teal-light); border-left: 3px solid var(--teal); }
+  .callout.warn { background: #fffbeb; border-left: 3px solid var(--orange); }
+  .callout.danger { background: #fef2f2; border-left: 3px solid var(--red); }
+  .callout-ico { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* Screenshot placeholder */
+  .ss { background: #f1f5f9; border: 2px dashed var(--border); border-radius: 10px; padding: 28px; text-align: center; margin: 16px 0; color: var(--muted); font-size: 13px; }
+  .ss strong { display: block; margin-bottom: 4px; color: var(--text); font-size: 14px; }
+
+  /* URL box */
+  .url-box { background: #f8fafc; border: 1.5px solid var(--teal); border-radius: 8px; padding: 12px 16px; font-family: monospace; font-size: 13px; color: var(--navy); word-break: break-all; margin: 12px 0; }
+
+  /* Setting table */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: left; font-weight: 700; font-size: 13px; }
+  td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  tr:nth-child(even) td { background: #f8fafc; }
+  td.key { font-weight: 700; color: var(--navy); white-space: nowrap; }
+  td.val { color: var(--teal-dark, #0E7C90); font-weight: 700; }
+
+  /* Completion box */
+  .done-box { background: linear-gradient(135deg, #ecfdf5, #d1fae5); border: 2px solid var(--green); border-radius: 16px; padding: 32px; text-align: center; margin-top: 40px; }
+  .done-box h2 { font-size: 22px; font-weight: 900; color: #065f46; margin-bottom: 8px; }
+  .done-box p { color: #047857; font-size: 14.5px; }
+
+  /* Sheet name tag */
+  .sheet-tag { display: inline-block; background: #e0f2fe; color: #0369a1; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 4px; font-family: monospace; }
+
+  /* highlight */
+  .hl { background: #fef08a; padding: 0 3px; border-radius: 3px; }
+
+  @media (max-width: 600px) {
+    .overview { grid-template-columns: 1fr; }
+    .step { padding: 22px 20px; }
+    .doc-header { padding: 24px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="doc-header">
+    <div class="badge">📋 手順書</div>
+    <h1>Google Apps Script デプロイ手順書</h1>
+    <p>SES Sales Partner LP ― フォーム送信バックエンド構築ガイド（スプレッドシート記録 + 通知メール）</p>
+  </div>
+
+  <!-- Overview -->
+  <div class="overview">
+    <div class="ov-card">
+      <div class="ov-icon">📊</div>
+      <div class="ov-title">スプレッドシート記録</div>
+      <div class="ov-desc">お問い合わせ・資料請求の入力内容を自動で保存</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon">📧</div>
+      <div class="ov-title">通知メール送信</div>
+      <div class="ov-desc">フォーム送信のたびに指定アドレスへ自動通知</div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon">🔗</div>
+      <div class="ov-title">LP と連携</div>
+      <div class="ov-desc">LPのモーダルフォームから直接データを受信</div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-num">
+      <div class="step-badge">1</div>
+      <div>
+        <div class="step-title">Googleスプレッドシートを新規作成する</div>
+        <div class="step-sub">受信データの保存先を用意します</div>
+      </div>
+    </div>
+
+    <ol class="inst">
+      <li><a href="https://sheets.google.com" target="_blank">sheets.google.com</a> を開き、「空白」で新規作成する</li>
+      <li>ファイル名を <span class="hl">SES Sales Partner ー フォーム受信</span> などわかりやすい名前に変更する</li>
+      <li>デフォルトの「シート1」のタブ名を右クリック →「名前を変更」→ <span class="sheet-tag">お問い合わせ</span> に変更する</li>
+      <li>左下の「＋」ボタンで新しいシートを追加し、<span class="sheet-tag">資料請求</span> に名前を変更する</li>
+    </ol>
+
+    <div class="callout info">
+      <span class="callout-ico">💡</span>
+      <span>シート名は <strong>お問い合わせ</strong> と <strong>資料請求</strong> に正確に設定してください。GASコードがこの名前でシートを識別します。</span>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-num">
+      <div class="step-badge">2</div>
+      <div>
+        <div class="step-title">Apps Script エディタを開く</div>
+        <div class="step-sub">スプレッドシートにGASを紐付けます</div>
+      </div>
+    </div>
+
+    <ol class="inst">
+      <li>スプレッドシートのメニューから <strong>「拡張機能」→「Apps Script」</strong> をクリックする</li>
+      <li>新しいタブでスクリプトエディタが開く</li>
+      <li>左上のプロジェクト名（「無題のプロジェクト」）をクリックして <span class="hl">SES-LP-Backend</span> に変更する</li>
+    </ol>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-num">
+      <div class="step-badge">3</div>
+      <div>
+        <div class="step-title">GASコードを貼り付ける</div>
+        <div class="step-sub">以下のコードをそのままコピーしてください</div>
+      </div>
+    </div>
+
+    <p>エディタ内の既存コード（<code>function myFunction(){}</code>）を<strong>すべて削除</strong>してから、下のコードを貼り付けてください。</p>
+
+    <h3>① 通知先メールアドレスを設定する（3行目）</h3>
+    <p>コード内の <code>NOTIFY_EMAIL</code> の値を<strong>通知を受け取りたいメールアドレス</strong>に変更してください。</p>
+
+    <div class="code-wrap">
+      <button class="copy-btn" onclick="copyCode(this)">コピー</button>
+      <pre>// ======================================================
+// 設定：通知メールの送信先アドレス
+// ======================================================
+const NOTIFY_EMAIL = 'your-email@example.com'; // ← ここを変更
+
+// ======================================================
+// POST リクエスト受信（フォーム送信時に呼ばれる）
+// ======================================================
+function doPost(e) {
+  try {
+    const params = e.parameter;
+    const type   = params.type || 'contact';  // "download" or contact types
+
+    if (type === 'download') {
+      handleDownload(params);
+    } else {
+      handleContact(params);
+    }
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: 'ok' }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    Logger.log(err);
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: 'error', message: err.message }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+// ======================================================
+// 資料請求フォーム処理
+// ======================================================
+function handleDownload(p) {
+  const ss    = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName('資料請求');
+  const now   = new Date();
+
+  // ヘッダーが無ければ追加
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['受信日時', '会社名', 'お名前', 'メールアドレス']);
+    sheet.getRange(1, 1, 1, 4).setFontWeight('bold').setBackground('#163A5C').setFontColor('#ffffff');
+  }
+
+  sheet.appendRow([
+    Utilities.formatDate(now, 'Asia/Tokyo', 'yyyy/MM/dd HH:mm:ss'),
+    p.company || '',
+    p.name    || '',
+    p.email   || ''
+  ]);
+
+  // 通知メール送信
+  const subject = '【資料請求】' + (p.company || '') + ' ' + (p.name || '') + ' 様';
+  const body = [
+    '資料請求がありました。',
+    '',
+    '■ 会社名：' + (p.company || '未入力'),
+    '■ お名前：' + (p.name    || '未入力'),
+    '■ メール：' + (p.email   || '未入力'),
+    '',
+    '受信日時：' + Utilities.formatDate(now, 'Asia/Tokyo', 'yyyy/MM/dd HH:mm:ss')
+  ].join('\n');
+
+  MailApp.sendEmail(NOTIFY_EMAIL, subject, body);
+}
+
+// ======================================================
+// お問い合わせフォーム処理
+// ======================================================
+function handleContact(p) {
+  const ss    = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName('お問い合わせ');
+  const now   = new Date();
+
+  // ヘッダーが無ければ追加
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(['受信日時', '会社名', 'お名前', 'メール', '電話番号', '種別', 'お問い合わせ内容']);
+    sheet.getRange(1, 1, 1, 7).setFontWeight('bold').setBackground('#163A5C').setFontColor('#ffffff');
+  }
+
+  sheet.appendRow([
+    Utilities.formatDate(now, 'Asia/Tokyo', 'yyyy/MM/dd HH:mm:ss'),
+    p.company || '',
+    p.name    || '',
+    p.email   || '',
+    p.phone   || '',
+    p.type    || '',
+    p.message || ''
+  ]);
+
+  // 通知メール送信
+  const subject = '【お問い合わせ】' + (p.company || '') + ' ' + (p.name || '') + ' 様';
+  const body = [
+    'お問い合わせがありました。',
+    '',
+    '■ 会社名　：' + (p.company || '未入力'),
+    '■ お名前　：' + (p.name    || '未入力'),
+    '■ メール　：' + (p.email   || '未入力'),
+    '■ 電話番号：' + (p.phone   || '未入力'),
+    '■ 種別　　：' + (p.type    || '未入力'),
+    '■ 内容　　：',
+    (p.message || '未入力'),
+    '',
+    '受信日時：' + Utilities.formatDate(now, 'Asia/Tokyo', 'yyyy/MM/dd HH:mm:ss')
+  ].join('\n');
+
+  MailApp.sendEmail(NOTIFY_EMAIL, subject, body);
+}</pre>
+    </div>
+
+    <div class="callout warn">
+      <span class="callout-ico">⚠️</span>
+      <span><strong>4行目の <code>your-email@example.com</code> を必ず変更してください。</strong>ここに設定したアドレスに通知メールが届きます。</span>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-num">
+      <div class="step-badge">4</div>
+      <div>
+        <div class="step-title">スクリプトを保存してデプロイする</div>
+        <div class="step-sub">ウェブアプリとして公開します</div>
+      </div>
+    </div>
+
+    <h3>保存</h3>
+    <ol class="inst">
+      <li>エディタ上部のフロッピーアイコン（💾）または <strong>Ctrl + S</strong>（Mac: ⌘ + S）で保存する</li>
+    </ol>
+
+    <h3>デプロイ</h3>
+    <ol class="inst">
+      <li>右上の <strong>「デプロイ」→「新しいデプロイ」</strong> をクリックする</li>
+      <li>「種類の選択」の歯車アイコン⚙️をクリックし、<strong>「ウェブアプリ」</strong> を選択する</li>
+      <li>以下の通りに設定する</li>
+    </ol>
+
+    <table>
+      <tr><th>設定項目</th><th>設定値</th></tr>
+      <tr><td class="key">説明</td><td class="val">LP フォーム受信 v1</td></tr>
+      <tr><td class="key">次のユーザーとして実行</td><td class="val">自分（your@gmail.com）</td></tr>
+      <tr><td class="key">アクセスできるユーザー</td><td class="val" style="color:#ef4444">全員（Googleアカウント不要）← 必須</td></tr>
+    </table>
+
+    <ol class="inst" start="4">
+      <li>「デプロイ」ボタンをクリックする</li>
+      <li><strong>「アクセスを承認」</strong> が表示されたら → 自分のGoogleアカウントを選択 → 「詳細」→「安全でないページへ移動」→「許可」をクリック</li>
+      <li>「デプロイが完了しました」の画面で <strong>「ウェブアプリのURL」</strong> をコピーする</li>
+    </ol>
+
+    <div class="callout danger">
+      <span class="callout-ico">🔴</span>
+      <span>「アクセスできるユーザー」が <strong>「全員」</strong> でないとLPからのフォーム送信が受信できません。必ず「全員（Googleアカウントなし）」または「全員」に設定してください。</span>
+    </div>
+
+    <p>コピーしたURLはこのような形式になります：</p>
+    <div class="url-box">https://script.google.com/macros/s/AKfycb<strong>XXXXXXXXXX</strong>/exec</div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-num">
+      <div class="step-badge">5</div>
+      <div>
+        <div class="step-title">main.js のURLを更新する</div>
+        <div class="step-sub">LPとGASを接続します</div>
+      </div>
+    </div>
+
+    <p><code>ses-sales-partner-site/main.js</code> の1行目を、コピーしたURLに書き換えます。</p>
+
+    <div class="code-wrap">
+      <pre>// main.js の1行目
+const GAS_URL = '<span style="color:#7dd3fc">ここにコピーしたURLを貼り付ける</span>';</pre>
+    </div>
+
+    <div class="callout info">
+      <span class="callout-ico">💡</span>
+      <span>すでに前回セッションでURLが設定済みの場合は、新しいデプロイのURLに必ず<strong>上書き</strong>してください。デプロイのたびに新しいURLが発行されます。</span>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-num">
+      <div class="step-badge">6</div>
+      <div>
+        <div class="step-title">動作テストをする</div>
+        <div class="step-sub">送信 → スプレッドシート確認 → メール確認</div>
+      </div>
+    </div>
+
+    <ol class="inst">
+      <li>LPをブラウザで開き、<strong>「無料相談する」</strong>ボタンをクリックしてモーダルを開く</li>
+      <li>テスト用の情報（会社名・名前・メール等）を入力して「送信する」をクリックする</li>
+      <li>「送信が完了しました」の画面が表示されることを確認する</li>
+      <li>Googleスプレッドシートの <span class="sheet-tag">お問い合わせ</span> シートに行が追加されていることを確認する</li>
+      <li>指定のメールアドレスに通知メールが届いていることを確認する</li>
+      <li>同様に <strong>「資料をメールで受け取る」</strong> フォームもテストする</li>
+    </ol>
+
+    <div class="callout warn">
+      <span class="callout-ico">⚠️</span>
+      <span>フォームは <code>mode: 'no-cors'</code> で送信するため、ブラウザ側では成功・失敗の判定ができません。<strong>スプレッドシートへの書き込みを必ず目視確認してください。</strong></span>
+    </div>
+  </div>
+
+  <!-- STEP 7 (optional) -->
+  <div class="step">
+    <div class="step-num">
+      <div class="step-badge">7</div>
+      <div>
+        <div class="step-title">（任意）コードを修正した場合の再デプロイ</div>
+        <div class="step-sub">コードを変更したら必ず新バージョンをデプロイしてください</div>
+      </div>
+    </div>
+
+    <ol class="inst">
+      <li>スクリプトエディタで修正後、<strong>Ctrl + S</strong> で保存する</li>
+      <li>「デプロイ」→ <strong>「デプロイを管理」</strong> をクリックする</li>
+      <li>既存のデプロイの右にある鉛筆アイコン（✏️）をクリックする</li>
+      <li>「バージョン」を <strong>「新バージョン」</strong> に変更し、「デプロイ」をクリックする</li>
+    </ol>
+
+    <div class="callout info">
+      <span class="callout-ico">💡</span>
+      <span>「デプロイを管理」から更新すると、URLは変わりません。main.jsの書き換えは不要です。</span>
+    </div>
+  </div>
+
+  <!-- Done -->
+  <div class="done-box">
+    <div style="font-size:48px;margin-bottom:12px;">✅</div>
+    <h2>設定完了！</h2>
+    <p>これでLPのフォームから送信されたデータが、スプレッドシートに自動記録され、<br>指定のメールアドレスに通知が届くようになります。</p>
+  </div>
+
+</div>
+
+<script>
+function copyCode(btn) {
+  const pre = btn.closest('.code-wrap').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    btn.textContent = 'コピー済み ✓';
+    setTimeout(() => btn.textContent = 'コピー', 2000);
+  });
+}
+</script>
+</body>
+</html>

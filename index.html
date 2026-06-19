@@ -6,7 +6,7 @@
 <title>SES Sales Partner｜SES営業の新規開拓を丸ごと代行</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -46,9 +46,9 @@
   </div>
   <div class="hero-row">
     <div class="hero-text">
-      <span class="hero-badge">AI × SES営業支援｜活動量を止めない新しい仕組み</span>
-      <h1>パートナー開拓から面談創出まで、<br>SES営業の新規開拓を丸ごと任せる。</h1>
-      <p class="lead">AIを活用した営業オペレーションで、<br>パートナー企業開拓からアポイント獲得まで一括対応。<br>継続的な案件・要員確保の基盤を実現します。</p>
+      <span class="hero-badge">SES営業ノウハウ × AI｜面談創出の専門代行サービス</span>
+      <h1>もう、待機エンジニアを出さない。</h1>
+      <p class="lead">SES営業に特化したノウハウとAIを掛け合わせ、<br>パートナー開拓から面談創出まで一括代行。<br>エンジニアの稼働を止めない仕組みを実現します。</p>
       <div class="cta-row">
         <a href="#contact" class="btn btn-primary">無料相談する
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -64,9 +64,6 @@
 <!-- ============ PROBLEM ============ -->
 <section id="problem" class="reveal">
   <div class="container">
-    <div class="section-mascot-head">
-      <img src="背景透過/1.png" alt="" class="mascot-img">
-    </div>
     <p class="eyebrow">PROBLEM</p>
     <h2 class="section-title">新規開拓が進まない原因は？</h2>
     <p class="section-lead">もし一つでも当てはまるなら、営業体制そのものを見直すタイミングかもしれません。</p>
@@ -120,8 +117,8 @@
           <li class="prob-row">
             <span class="prob-x" aria-hidden="true">✕</span>
             <div>
-              <p class="prob-name">商談機会不足</p>
-              <p class="prob-sub">アポイント獲得ができず商談に繋がらない</p>
+              <p class="prob-name">面談機会不足</p>
+              <p class="prob-sub">アポイント獲得ができず面談に繋がらない</p>
             </div>
           </li>
           <li class="prob-row">
@@ -139,133 +136,20 @@
   </div>
 </section>
 
-<!-- ============ NEGATIVE CYCLE ============ -->
-<section class="bg-soft reveal">
-  <div class="container">
-    <h2 class="section-title">営業担当を増やしても、<br>新規開拓は増えない.</h2>
-    <p class="cycle-intro">SES企業の営業担当者は、案件対応・要員提案・顧客フォロー・契約対応など日々多くの業務を抱えています。その結果、本来最も重要な新規開拓が後回しになります。</p>
-
-    <!--
-      ── 正五角形サイクル図 ──
-      中心(50,50)・半径33の正円上に5頂点を等間隔72°で配置。
-      viewBox="0 0 100 100" の SVG 座標系と
-      CSS の % 座標系が 1:1 対応するため、
-      カードの left/top と SVG の弧の端点が正確に一致する。
-    -->
-    <div class="cdiag-outer">
-      <div class="cdiag">
-
-        <!--
-          SVG 弧の計算 (r=33, center=50,50)
-          頂点角度: P0=-90° P1=-18° P2=54° P3=126° P4=198°
-          各弧は隣接頂点の±4°内側をつなぐ（隙間でカードと重ならない）
-          arc: A 33 33 0 0 1 (clockwise, small-arc)
-        -->
-        <svg class="cdiag-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <marker id="pg-arr" viewBox="0 0 10 10" refX="9" refY="5"
-                    markerWidth="5" markerHeight="5" orient="auto">
-              <path d="M1 1.5 L9 5 L1 8.5" stroke="#EF4444" stroke-width="1.4"
-                    stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </marker>
-          </defs>
-          <!-- Arc P0→P1: -86° → -22° -->
-          <path d="M 52.30 17.07 A 33 33 0 0 1 80.59 37.66"
-                stroke="#EF4444" stroke-width="0.7" marker-end="url(#pg-arr)"/>
-          <!-- Arc P1→P2: -14° → 50° -->
-          <path d="M 82.02 42.01 A 33 33 0 0 1 71.21 75.28"
-                stroke="#EF4444" stroke-width="0.7" marker-end="url(#pg-arr)"/>
-          <!-- Arc P2→P3: 58° → 122° -->
-          <path d="M 67.48 77.98 A 33 33 0 0 1 32.52 77.98"
-                stroke="#EF4444" stroke-width="0.7" marker-end="url(#pg-arr)"/>
-          <!-- Arc P3→P4: 130° → 194° -->
-          <path d="M 28.79 75.28 A 33 33 0 0 1 17.98 42.01"
-                stroke="#EF4444" stroke-width="0.7" marker-end="url(#pg-arr)"/>
-          <!-- Arc P4→P0: 202° → 266° -->
-          <path d="M 19.41 37.66 A 33 33 0 0 1 47.70 17.07"
-                stroke="#EF4444" stroke-width="0.7" marker-end="url(#pg-arr)"/>
-        </svg>
-
-        <!--
-          カード配置: left/top が SVG 座標 (%) と一致
-          transform:translate(-50%,-50%) でカード中心 = 頂点座標
-          P0(50,17) P1(81.4,39.8) P2(69.4,76.7) P3(30.6,76.7) P4(18.6,39.8)
-        -->
-
-        <!-- P0: 営業担当不足 (top, -90°) -->
-        <div class="cnode" style="left:50%;top:17%">
-          <div class="cnode-ico">
-            <svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="9" r="4.5" stroke="#6B7280" stroke-width="1.8"/><path d="M4 26c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </div>
-          <p class="cnode-ttl">営業担当不足</p>
-          <p class="cnode-dsc">営業活動に十分な<br>人員を確保できない</p>
-        </div>
-
-        <!-- P1: 新規開拓不足 (right-top, -18°) -->
-        <div class="cnode" style="left:81.4%;top:39.8%">
-          <div class="cnode-ico">
-            <svg viewBox="0 0 28 28" fill="none"><polyline points="3,22 10,13 15,18 25,7" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="20,7 25,7 25,12" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <p class="cnode-ttl">新規開拓不足</p>
-          <p class="cnode-dsc">新しい顧客・案件を<br>十分に開拓できない</p>
-        </div>
-
-        <!-- P2: パートナー企業不足 (right-bot, 54°) -->
-        <div class="cnode" style="left:69.4%;top:76.7%">
-          <div class="cnode-ico">
-            <svg viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="2" stroke="#6B7280" stroke-width="1.8"/><line x1="4" y1="10" x2="24" y2="10" stroke="#6B7280" stroke-width="1.5"/><line x1="10" y1="4" x2="10" y2="10" stroke="#6B7280" stroke-width="1.5"/><line x1="18" y1="4" x2="18" y2="10" stroke="#6B7280" stroke-width="1.5"/><rect x="8" y="14" width="5" height="5" rx="0.5" stroke="#6B7280" stroke-width="1.3"/><rect x="15" y="14" width="5" height="5" rx="0.5" stroke="#6B7280" stroke-width="1.3"/></svg>
-          </div>
-          <p class="cnode-ttl">パートナー<br>企業不足</p>
-          <p class="cnode-dsc">協力会社との<br>連携が広がらない</p>
-        </div>
-
-        <!-- P3: 案件・要員情報不足 (left-bot, 126°) -->
-        <div class="cnode" style="left:30.6%;top:76.7%">
-          <div class="cnode-ico">
-            <svg viewBox="0 0 28 28" fill="none"><rect x="6" y="3" width="16" height="22" rx="2" stroke="#6B7280" stroke-width="1.8"/><line x1="10" y1="9" x2="18" y2="9" stroke="#6B7280" stroke-width="1.6" stroke-linecap="round"/><line x1="10" y1="13" x2="18" y2="13" stroke="#6B7280" stroke-width="1.6" stroke-linecap="round"/><line x1="10" y1="17" x2="15" y2="17" stroke="#6B7280" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </div>
-          <p class="cnode-ttl">案件・要員<br>情報不足</p>
-          <p class="cnode-dsc">必要な情報が<br>集まらない</p>
-        </div>
-
-        <!-- P4: 機会損失・待機発生 (left-top, 198°) -->
-        <div class="cnode" style="left:18.6%;top:39.8%">
-          <div class="cnode-ico">
-            <svg viewBox="0 0 28 28" fill="none"><polyline points="3,7 10,16 15,11 25,22" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><polyline points="20,22 25,22 25,17" stroke="#6B7280" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <p class="cnode-ttl">機会損失・<br>待機発生</p>
-          <p class="cnode-dsc">売上・利益が<br>減少する</p>
-        </div>
-
-        <!-- Center: 負のサイクル (50%, 50%) -->
-        <div class="cdiag-center">
-          <svg viewBox="0 0 40 36" fill="none" class="cdiag-warn-svg"><path d="M20 3L38 33H2L20 3Z" fill="#FEE2E2" stroke="#EF4444" stroke-width="1.8" stroke-linejoin="round"/><line x1="20" y1="14" x2="20" y2="22" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="28" r="1.6" fill="#EF4444"/></svg>
-          <p class="cdiag-c-ttl">負のサイクル</p>
-        </div>
-
-      </div><!-- /cdiag -->
-    </div><!-- /cdiag-outer -->
-
-  </div>
-</section>
 
 <!-- ============ TIME ALLOCATION ============ -->
-<section class="reveal">
+<section class="reveal alloc-section">
   <div class="container">
-    <h2 class="section-title">営業担当者の時間は、<br>本当に商談に使えていますか？</h2>
-    <p class="section-lead">準備業務に追われ、本来集中すべき商談・提案・関係構築に時間を使えていないケースが多くあります。</p>
-    <div class="alloc-grid">
-      <div class="alloc-card">
-        <div class="alloc-head core">本来集中すべき業務</div>
-        <ul class="alloc-list core">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>商談</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>提案</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>関係構築</li>
-        </ul>
-      </div>
-      <div class="alloc-card">
-        <div class="alloc-head waste">実際に時間を奪う準備業務</div>
-        <ul class="alloc-list waste">
+    <h2 class="section-title">営業担当者の時間は、<br>本当に面談に使えていますか？</h2>
+    <p class="section-lead">準備業務に追われ、本来集中すべき面談・提案・関係構築に時間を使えていないケースが多くあります。</p>
+
+    <div class="alloc-chart-layout">
+
+      <!-- Left: waste tasks -->
+      <div class="alloc-side alloc-side--waste">
+        <div class="alloc-side-pct waste-pct">70<span>%</span></div>
+        <div class="alloc-side-badge waste-badge">実際に時間を奪う準備業務</div>
+        <ul class="alloc-chart-list waste-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>ターゲット企業のリスト作成</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>企業・担当者調査</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>日程調整・リマインド</li>
@@ -274,11 +158,48 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>営業活動の記録・管理</li>
         </ul>
       </div>
+
+      <!-- Center: donut chart -->
+      <div class="alloc-donut-wrap">
+        <svg viewBox="0 0 240 240" class="alloc-donut-svg" aria-hidden="true">
+          <!-- track -->
+          <circle cx="120" cy="120" r="88" fill="none" stroke="#E4EAEF" stroke-width="34"/>
+          <!-- 70% waste (gray) — starts at 12 o'clock -->
+          <circle cx="120" cy="120" r="88" fill="none" stroke="#94a3b8" stroke-width="34"
+            stroke-dasharray="387.2 553.2"
+            transform="rotate(-90 120 120)"/>
+          <!-- 30% core (teal) — starts where waste ends (252°) -->
+          <circle cx="120" cy="120" r="88" fill="none" stroke="#16A0BA" stroke-width="34"
+            stroke-dasharray="166 553.2"
+            transform="rotate(162 120 120)"/>
+          <!-- inner white circle for donut hole -->
+          <circle cx="120" cy="120" r="71" fill="#fff"/>
+          <!-- center label -->
+          <text x="120" y="105" text-anchor="middle" font-family="'Inter','Noto Sans JP',sans-serif" font-size="11" fill="#8B98A6" font-weight="500">営業時間の</text>
+          <text x="120" y="136" text-anchor="middle" font-family="'Inter','Noto Sans JP',sans-serif" font-size="36" fill="#94a3b8" font-weight="800">70%</text>
+          <text x="120" y="157" text-anchor="middle" font-family="'Inter','Noto Sans JP',sans-serif" font-size="11" fill="#8B98A6" font-weight="500">が準備業務</text>
+        </svg>
+        <!-- legend -->
+        <div class="alloc-legend">
+          <span class="alloc-leg-dot waste-dot"></span><span class="alloc-leg-txt">準備業務 70%</span>
+          <span class="alloc-leg-dot core-dot"></span><span class="alloc-leg-txt">本来業務 30%</span>
+        </div>
+      </div>
+
+      <!-- Right: core tasks -->
+      <div class="alloc-side alloc-side--core">
+        <div class="alloc-side-pct core-pct">30<span>%</span></div>
+        <div class="alloc-side-badge core-badge">本来集中すべき業務</div>
+        <ul class="alloc-chart-list core-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>面談</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>提案</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>関係構築</li>
+        </ul>
+      </div>
+
     </div>
-    <div class="mascot-center">
-      <img src="背景透過/4.png" alt="" class="mascot-img">
-    </div>
-    <p class="tagline">営業成果を伸ばすためには、<br>営業担当者の時間を増やすのではなく、<br>商談機会そのものを増やす必要があります。</p>
+
+    <p class="tagline">営業成果を伸ばすためには、<br>営業担当者の時間を増やすのではなく、<br>面談機会そのものを増やす必要があります。</p>
   </div>
 </section>
 
@@ -286,15 +207,15 @@
 <section class="solution" id="solution">
   <div class="container">
     <p class="eyebrow">SOLUTION</p>
-    <h2 class="solution-title">新規開拓からアポ獲得まで<span class="sol-accent">自動化。</span><br>営業担当は<span class="sol-accent">商談だけ。</span></h2>
-    <p class="solution-sub">AIがターゲット選定・リスト作成・アプローチ・追客を担当。<br>人は商談と関係構築に集中できます。</p>
+    <h2 class="solution-title">SES営業ノウハウとAIが、<br><span class="sol-accent">面談を創出し続ける。</span></h2>
+    <p class="solution-sub">SES業界特化の営業ノウハウをAIに組み込み、<br>ターゲット選定からアポ獲得まで一括代行。人は面談と関係構築に集中できます。</p>
 
     <div class="steps-row">
       <!-- AI担当ゾーン -->
       <div class="step-group ai-group">
         <div class="step-group-label">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V6a3 3 0 016 0v2"/><circle cx="12" cy="14" r="1.5" fill="currentColor"/></svg>
-          AIが自動で実行する領域（STEP01〜04）
+          ノウハウ × AI が実行する領域（STEP01〜04）
         </div>
         <div class="step-group-items">
           <div class="step-item">
@@ -334,7 +255,7 @@
           <div class="step-item">
             <div class="step-circle step-circle--human"><svg class="icon" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><path d="M2 20c0-3.3 2.7-5 6-5"/><path d="M14 12c1.1-.6 2.5-1 4-1a7 7 0 017 7"/><circle cx="18" cy="9" r="2.5"/><path d="M18 14v1M18 17v.5"/></svg></div>
             <div class="step-num">STEP05</div>
-            <div class="step-title">商談・関係構築</div>
+            <div class="step-title">面談・関係構築</div>
           </div>
         </div>
       </div>
@@ -343,7 +264,7 @@
     <!-- タグライン -->
     <div class="solution-tagline-row">
       <span class="solution-tagline-line"></span>
-      <p class="solution-tagline">AIが商談の<span class="sol-quote">"きっかけ"</span>を創出し、人が<span class="sol-quote">"受注"</span>を創出する</p>
+      <p class="solution-tagline">AIが面談の<span class="sol-quote">"きっかけ"</span>を創出し、人が<span class="sol-quote">"受注"</span>を創出する</p>
       <span class="solution-tagline-line"></span>
     </div>
 
@@ -356,7 +277,7 @@
       </div>
       <div class="sol-effect-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        <span>営業担当の工数を削減し、<br>商談に集中できる体制へ</span>
+        <span>営業担当の工数を削減し、<br>面談に集中できる体制へ</span>
       </div>
       <div class="sol-effect-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="7" r="3"/><path d="M3 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M16 14c2 .5 5 2 5 6"/></svg>
@@ -371,65 +292,12 @@
     <!-- ボトムバッジ -->
     <div class="solution-badge">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" fill="#16A0BA" stroke="#16A0BA"/><path d="M7 12l3.5 3.5L17 8.5" stroke="#fff"/></svg>
-      営業担当を増やさず、<span class="sol-badge-accent">持続的なパートナー開拓</span>を実現します。
+      ノウハウとAIの掛け合わせで、<span class="sol-badge-accent">再現性のあるパートナー開拓</span>を実現します。
     </div>
   </div>
 </section>
 
-<!-- ============ FULL SERVICE ============ -->
-<section class="reveal">
-  <div class="container">
-    <h2 class="section-title">アプローチだけでは終わりません。<br>アポイント獲得まで丸ごと対応します。</h2>
-    <p class="section-lead">一般的な代行サービスはアプローチするだけ。<br>SES Sales Partnerは違います。</p>
-    <div class="fs-grid">
-      <div class="fs-card muted">
-        <span class="fs-tag muted">一般的な営業支援サービス</span>
-        <h3>アプローチするだけ</h3>
-        <ul class="fs-flow">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>リスト作成</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>メール・電話アプローチ</li>
-        </ul>
-        <p class="fs-end muted-end">✕ 反応があれば貴社へ引き継ぎ</p>
-      </div>
-      <div class="fs-card highlight">
-        <span class="fs-tag highlight">SES Sales Partner</span>
-        <h3>アポイント獲得まで一括対応</h3>
-        <ul class="fs-flow">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>AIによるターゲット企業の選定</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>リスト作成・アプローチ</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>返信対応・フォローアップ</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>日程調整・アポイント確定</li>
-        </ul>
-        <p class="fs-end highlight-end">✓ アポ獲得まで完全サポート</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ============ WHY ============ -->
-<section class="bg-soft reveal">
-  <div class="container">
-    <p class="eyebrow">WHY</p>
-    <h2 class="section-title">なぜここまでの活動量を実現できるのか？</h2>
-    <p class="why-intro">SES Sales Partnerでは、SES営業ノウハウとAIを活用した営業オペレーションを組み合わせています。<br>企業リサーチ・ターゲット抽出・情報収集・アプローチ準備などの業務を効率化することで、<br>営業担当者だけでは実現できない営業活動量を継続的に生み出しています。</p>
-    <div class="why-row">
-      <div class="why-item"><span class="why-ico"><svg class="icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.6-4.6"/></svg></span><span>企業調査</span></div>
-      <div class="why-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="why-item"><span class="why-ico"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="0.6" fill="currentColor"/></svg></span><span>ターゲット抽出</span></div>
-      <div class="why-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="why-item"><span class="why-ico"><svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-6"/></svg></span><span>情報収集</span></div>
-      <div class="why-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="why-item"><span class="why-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M7 3.5h7l4 4V19a1.4 1.4 0 0 1-1.4 1.4H7A1.4 1.4 0 0 1 5.6 19V4.9A1.4 1.4 0 0 1 7 3.5z"/><path d="M14 3.5v4h4M8.5 12h7M8.5 15.3h5"/></svg></span><span>営業準備</span></div>
-      <div class="why-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="why-item"><span class="why-ico"><svg class="icon" viewBox="0 0 24 24"><path d="M3 12l18-8-7 18-3-7-8-3z"/></svg></span><span>アプローチ</span></div>
-      <div class="why-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="why-item"><span class="why-ico"><svg class="icon" viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M3 20c0-3 2.2-5 5-5s5 2 5 5M13 20c0-2.6 1.8-4.5 4-4.8"/></svg></span><span>商談・関係構築</span></div>
-    </div>
-    <div class="tagline-emphasis">
-      <p class="tagline-emphasis-text"><span class="te-ai">AIで手数を増やし、</span><span class="te-human">人が関係を構築する。</span></p>
-    </div>
-  </div>
-</section>
 
 <!-- ============ REASONS ============ -->
 <section class="reveal">
@@ -439,65 +307,61 @@
     <div class="reasons-grid">
       <div class="reason-card"><span class="reason-num">01</span><div class="reason-card-top"><span class="reason-ico"><svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><path d="M3 12l9-7 9 7"/><path d="M5 10v9h14v-9"/></svg></span><h3>SES業界特化</h3></div><p>SES業界特有の商流や案件・要員情報の流れを理解した専門チームが対応します。</p></div>
       <div class="reason-card"><span class="reason-num">02</span><div class="reason-card-top"><span class="reason-ico"><svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><path d="M2.5 13.5l4-4 2.5 2.5 4-4 2.2 2.2"/><path d="M12.7 14.3l1.8 1.8a2 2 0 0 0 2.9 0l3.6-3.6a2 2 0 0 0 0-2.9l-1-1"/></svg></span><h3>パートナー開拓専門</h3></div><p>継続的なアプローチにより、新しいパートナー企業との接点を創出します。</p></div>
-      <div class="reason-card"><span class="reason-num">03</span><div class="reason-card-top"><span class="reason-ico"><svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M3 20c0-3 2.2-5 5-5s5 2 5 5M13 20c0-2.6 1.8-4.5 4-4.8"/></svg></span><h3>アポイント獲得まで一括サポート</h3></div><p>ターゲット選定からアポイント獲得まで全工程を代行。営業担当者は商談・提案に集中できます。</p></div>
-      <div class="reason-card"><span class="reason-num">04</span><div class="reason-card-top"><span class="reason-ico"><svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span><h3>AI活用による圧倒的な活動量</h3></div><p>AIを活用した営業オペレーションにより、安定した営業活動を継続的に実施します。</p></div>
+      <div class="reason-card"><span class="reason-num">03</span><div class="reason-card-top"><span class="reason-ico"><svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M3 20c0-3 2.2-5 5-5s5 2 5 5M13 20c0-2.6 1.8-4.5 4-4.8"/></svg></span><h3>アポイント獲得まで一括サポート</h3></div><p>ターゲット選定からアポイント獲得まで全工程を代行。営業担当者は面談・提案に集中できます。</p></div>
+      <div class="reason-card"><span class="reason-num">04</span><div class="reason-card-top"><span class="reason-ico"><svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span><h3>ノウハウ×AIによる圧倒的な活動量</h3></div><p>SES業界で培った営業ノウハウをAIに落とし込み、誰でも再現できる仕組みで成果を創出します。</p></div>
     </div>
   </div>
 </section>
 
-<!-- ============ FEATURES ============ -->
-<section class="features-section reveal">
-  <div class="features-blobs">
-    <div class="feat-blob feat-blob-tl"></div>
-    <div class="feat-blob feat-blob-br"></div>
-  </div>
-  <div class="container" style="position:relative;z-index:1;">
-    <p class="feat-eyebrow">＼ SES企業に選ばれる理由 ／</p>
-    <h2 class="feat-title">SES企業にもたらす<span class="feat-accent">安心</span></h2>
-    <p class="feat-lead">契約・請求・稼働管理からコンプライアンス対応まで、SES業務に必要な機能をワンストップでご提供します。</p>
-    <div class="feat-grid">
-      <!-- パートナー契約管理 -->
-      <div class="feat-card">
-        <div class="feat-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+<!-- ============ PRICING PLANS ============ -->
+<section class="pricing-section reveal">
+  <div class="container">
+    <p class="eyebrow">PLANS</p>
+    <h2 class="section-title">貴社の課題に合わせて選べる、2つの支援パターン</h2>
+    <div class="pricing-grid">
+
+      <!-- Plan A -->
+      <div class="pricing-card">
+        <div class="pricing-card-top">
+          <span class="pricing-badge badge-mute">手間を最小化</span>
+          <h3 class="pricing-plan-name">事務作業まるごと代行</h3>
+          <p class="pricing-price"><span class="pricing-num">25</span>万円<span class="pricing-unit">／月</span></p>
         </div>
-        <span class="feat-label">パートナー<br>契約管理</span>
-      </div>
-      <!-- 請求管理 -->
-      <div class="feat-card">
-        <div class="feat-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="12" y1="15" x2="12" y2="19"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        <div class="pricing-card-body">
+          <p class="pricing-body-lead">営業の「7割」を占める事務作業をすべて巻き取ります。</p>
+          <ul class="pricing-list">
+            <li class="pricing-list-item check">ターゲットリストの精査・作成</li>
+            <li class="pricing-list-item check">パートナー企業への一斉アプローチ</li>
+            <li class="pricing-list-item check">面談の日程調整・案件情報の収集</li>
+          </ul>
+          <div class="pricing-you-focus">
+            <p class="pricing-yf-label">YOU FOCUS</p>
+            <p class="pricing-yf-text">「面談」と「提案」のみ</p>
+          </div>
         </div>
-        <span class="feat-label">請求管理</span>
       </div>
-      <!-- 稼働管理 -->
-      <div class="feat-card">
-        <div class="feat-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="8" width="4" height="13" rx="1"/><rect x="17" y="4" width="4" height="17" rx="1"/></svg>
+
+      <!-- Plan B -->
+      <div class="pricing-card pricing-card--featured">
+        <div class="pricing-card-top">
+          <span class="pricing-badge badge-accent">成果を最大化</span>
+          <h3 class="pricing-plan-name">営業活動フルサポート</h3>
+          <p class="pricing-price"><span class="pricing-num">35</span>万円<span class="pricing-unit">／月</span></p>
         </div>
-        <span class="feat-label">稼働管理</span>
-      </div>
-      <!-- コンプライアンス対応 -->
-      <div class="feat-card">
-        <div class="feat-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a9 9 0 0 1 9 9v1a9 9 0 0 1-18 0v-1a9 9 0 0 1 9-9z"/><circle cx="12" cy="10" r="3"/><path d="M6.17 18.57A7 7 0 0 1 12 15a7 7 0 0 1 5.83 3.57"/><polyline points="9 11 11 13 15 9"/></svg>
+        <div class="pricing-card-body">
+          <p class="pricing-body-lead">事務作業に加え、実営業としての「10割」を支援します。</p>
+          <ul class="pricing-list">
+            <li class="pricing-list-item check">プランAのすべての事務代行</li>
+            <li class="pricing-list-item plus">パートナー企業との初回面談代行</li>
+            <li class="pricing-list-item plus">案件と要員の初期マッチング提案</li>
+          </ul>
+          <div class="pricing-you-focus">
+            <p class="pricing-yf-label">YOU FOCUS</p>
+            <p class="pricing-yf-text">「最終判断」と「成約」のみ</p>
+          </div>
         </div>
-        <span class="feat-label">コンプライアンス<br>対応</span>
       </div>
-      <!-- アラート通知 -->
-      <div class="feat-card">
-        <div class="feat-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-        </div>
-        <span class="feat-label">アラート<br>通知</span>
-      </div>
-      <!-- 帳票出力 -->
-      <div class="feat-card">
-        <div class="feat-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/><path d="M7 13h2"/><path d="M7 17h2"/><path d="M13 13h4"/><path d="M13 17h4"/></svg>
-        </div>
-        <span class="feat-label">帳票出力</span>
-      </div>
+
     </div>
   </div>
 </section>
@@ -687,35 +551,10 @@
 
 
 
-<!-- ============ FINAL CTA ============ -->
-<section class="reveal" id="contact">
-  <div class="container">
-    <div class="final-cta">
-      <div class="final-cta-text">
-        <h2>新規開拓を止めない。<br>パートナー開拓からアポイント獲得まで、<br>SES営業の成長循環を<br>丸ごとお任せください。</h2>
-        <p>SES営業の新規開拓を、丸ごとお任せください。</p>
-        <div class="cta-row">
-          <a href="#contact" class="btn btn-primary open-modal">無料相談する
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="#download" class="btn btn-outline">資料をメールで受け取る
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="final-cta-img">
-        <img src="https://images.unsplash.com/photo-1752159684779-0639174cdfac?w=900&h=760&fit=crop&auto=format&q=80" alt="ビジネスパートナーシップの握手">
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ============ FAQ ============ -->
 <section class="bg-soft reveal" id="faq">
   <div class="container">
-    <div class="section-mascot-head">
-      <img src="背景透過/3.png" alt="" class="mascot-img">
-    </div>
     <p class="eyebrow">FAQ</p>
     <h2 class="section-title">よくあるご質問</h2>
     <div class="faq-list">
@@ -846,22 +685,9 @@
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-logo">
-        <svg class="logo-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="4" width="16" height="16" rx="3" transform="rotate(15 12 12)" fill="#ffffff" opacity="0.85"/>
-          <rect x="12" y="12" width="16" height="16" rx="3" transform="rotate(15 20 20)" fill="#16A0BA"/>
-        </svg>
-        SES Sales Partner
-      </div>
-      <div class="footer-links">
-        <a href="#problem">課題</a>
-        <a href="#solution">サービス</a>
-        <a href="#compare">実績</a>
-        <a href="#flow">ご利用の流れ</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" id="footer-contact-link">お問い合わせ</a>
-      </div>
+    <div class="footer-links">
+      <a href="https://valorise.jp/2" target="_blank" rel="noopener">プライバシーポリシー</a>
+      <a href="https://valorise.jp/" target="_blank" rel="noopener">運営会社</a>
     </div>
     <p class="footer-bottom">© 2026 SES Sales Partner. All rights reserved.</p>
   </div>
@@ -869,7 +695,6 @@
 
 <!-- ============ FIXED CTA BUTTON ============ -->
 <a href="#contact" class="fixed-cta open-modal" aria-label="無料相談する">
-  <img src="背景透過/1.png" alt="" class="fixed-cta-img">
   <span class="fixed-cta-label">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
     無料相談
