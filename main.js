@@ -1,5 +1,5 @@
 /* ── GAS エンドポイント ── */
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzNU8bv7G9ykul7P80MJO82ddPt_kMV2GbWn0i9c8Pi4ButWoNSn1fO8fvs8Iv0YsvQ/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzi7j1O8AyWwKwe9r_eltAINBKuncdYAdcRhEk3Q_12K_JF8D7GTbvhExuprv6IdC-d/exec';
 
 /* ── Mobile menu ── */
 const menuToggle = document.getElementById('menuToggle');

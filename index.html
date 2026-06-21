@@ -8,6 +8,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  corePlugins: { preflight: false },
+  theme: {
+    extend: {
+      screens: { pc: '1200px' },
+      colors: {
+        teal:  { DEFAULT: '#16A0BA', dark: '#0E7C90', light: '#E6F5F8' },
+        navy:  { 900: '#0E2238', 800: '#163A5C' },
+        body:  '#5C6B7C'
+      },
+      borderRadius: { card: '20px' },
+      boxShadow: {
+        card:   '0 4px 20px rgba(14,34,56,0.12)',
+        teal:   '0 8px 24px rgba(22,160,186,0.35)',
+        'teal-lg': '0 12px 30px rgba(22,160,186,0.45)'
+      }
+    }
+  }
+}
+</script>
 </head>
 <body>
 
@@ -39,25 +61,76 @@
 </header>
 
 <!-- ============ HERO ============ -->
-<section class="hero" id="top">
-  <!-- 背景写真 -->
-  <div class="hero-bg">
-    <img src="hero-meeting.png" alt="営業オフィスで打ち合わせをするビジネスパーソン">
-  </div>
-  <div class="hero-row">
-    <div class="hero-text">
-      <span class="hero-badge">SES営業ノウハウ × AI｜面談創出の専門代行サービス</span>
-      <h1>もう、待機エンジニアを出さない。</h1>
-      <p class="lead">SES営業に特化したノウハウとAIを掛け合わせ、<br>パートナー開拓から面談創出まで一括代行。<br>エンジニアの稼働を止めない仕組みを実現します。</p>
-      <div class="cta-row">
-        <a href="#contact" class="btn btn-primary">無料相談する
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+<section id="top" class="bg-white relative min-h-[480px] md:min-h-[560px] !p-0" aria-label="メインビジュアル">
+  <div class="max-w-[1280px] mx-auto px-5 md:px-10 pc:px-20
+              pc:grid pc:grid-cols-[45%_55%] pc:min-h-[700px]">
+
+    <!-- ── 左：テキストエリア ── -->
+    <div class="flex flex-col justify-center py-10 pc:py-0 pc:pr-8 relative z-10">
+
+      <!-- ① キャッチコピーラベル -->
+      <p class="hidden md:inline-block self-start border border-teal text-teal text-xs font-semibold
+                px-4 py-1.5 rounded-full mb-5 leading-relaxed">
+        営業担当を増やさなくても、営業活動量は増やせる。
+      </p>
+
+      <!-- ② メインコピー -->
+      <h1 class="font-black text-navy-900 leading-snug mb-5
+                 text-[1.75rem] md:text-[2.25rem] pc:text-[2.6rem]">
+        パートナー開拓から<br>
+        面談創出まで。<br>
+        <span class="text-teal">SES営業の新規開拓を<br>
+        丸ごと任せる。</span>
+      </h1>
+
+      <!-- ③ 説明文 -->
+      <p class="hidden md:block text-sm md:text-[15px] text-body leading-relaxed mb-8">
+        SES業界特化の営業支援サービス。<br>
+        パートナー企業開拓から商談設定・初回面談まで対応し、<br>
+        継続的な案件・要員確保の基盤を実現します。
+      </p>
+
+      <!-- ④ CTAボタン2個 -->
+      <div class="flex flex-wrap gap-3" role="group" aria-label="お問い合わせ">
+        <a href="#contact"
+           class="inline-flex items-center gap-2 bg-teal hover:bg-teal-dark
+                  text-white font-bold text-sm md:text-[15px]
+                  px-7 py-3.5 rounded-full transition-all
+                  shadow-teal hover:shadow-teal-lg hover:-translate-y-0.5">
+          無料相談する
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
         </a>
-        <a href="#download" class="btn btn-outline">資料をメールで受け取る
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+        <a href="#download"
+           class="inline-flex items-center gap-2 bg-navy-900 text-white border-2 border-navy-900
+                  hover:bg-navy-800 hover:border-navy-800 font-bold text-sm md:text-[15px]
+                  px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5">
+          資料請求する
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/>
+          </svg>
         </a>
       </div>
     </div>
+
+    <!-- ── 右：ビジュアルエリア ── -->
+    <div class="absolute inset-0 pc:relative pc:inset-auto pc:self-stretch">
+
+      <!-- 人物写真 -->
+      <picture>
+        <source media="(max-width:767px)" srcset="assets/hero-mobile.png">
+        <img src="assets/hero-meeting.png"
+             alt="ビジネスパーソンが打ち合わせをしている様子"
+             class="w-full h-full object-cover object-[60%_10%] pc:object-[90%_20%]">
+      </picture>
+
+    </div>
+
   </div>
 </section>
 
@@ -586,7 +659,7 @@
     </button>
     <div class="modal-inner">
       <h2>資料をメールでお送りします</h2>
-      <p class="modal-sub">入力いただいたメールアドレスにPDFをお送りします。</p>
+      <p class="modal-sub">ご入力のメールアドレスにPDFをお送りします。</p>
       <div id="download-form-wrapper">
         <form id="download-form" novalidate>
           <div class="form-group">
